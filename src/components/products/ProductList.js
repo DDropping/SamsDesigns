@@ -1,7 +1,8 @@
 import React from "react"
 import Product from "./Product"
 
-const ProductList = () => {
+const ProductList = ({ products }) => {
+  console.log(products)
   return (
     <div>
       <Product />
