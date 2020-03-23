@@ -20,7 +20,7 @@ export const getProducts = graphql`
         node {
           title
           price
-          id: contentful_id
+          contentful_id
           images {
             fluid {
               ...GatsbyContentfulFluid_withWebp

@@ -8,7 +8,7 @@ exports.createPages = async ({ actions, graphql }) => {
       products: allContentfulProduct {
         edges {
           node {
-            id: contentful_id
+            contentful_id
           }
         }
       }
@@ -17,10 +17,10 @@ exports.createPages = async ({ actions, graphql }) => {
 
   data.products.edges.forEach(({ node }) => {
     createPage({
-      path: `products/${node.id}`,
+      path: `products/${node.contentful_id}`,
       component: path.resolve("./src/templates/ProductTemplate.js"),
       context: {
-        slug: node.id,
+        contentful_id: node.contentful_id,
       },
     })
   })
