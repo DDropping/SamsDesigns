@@ -3,10 +3,13 @@
 
 .container {
   width: 100vw;
-  height: 200px;
   @media (max-width: $md) {
-    height: 125px;
     .menu {
+      display: none;
+    }
+  }
+  @media (min-width: $md) {
+    .menuIcon {
       display: none;
     }
   }
@@ -15,23 +18,30 @@
 .menuIcon {
   display: "inline-block";
   font-size: 2rem;
-  margin-right: 25px;
+  margin-right: 2rem;
   float: right;
   cursor: pointer;
 }
 
 .logo {
   font-family: "Lobster", cursive;
-  padding-top: 25px;
+  padding: 1.5rem 0;
   font-size: 3rem;
   text-align: center;
 }
 
 .menu {
-  padding: 25px;
+  padding-bottom: 2rem;
   text-align: center;
   li {
     display: inline-block;
+  }
+}
+
+.menuDrawer {
+  li {
+    display: block;
+    padding: 1rem 1.25rem;
   }
 }
 

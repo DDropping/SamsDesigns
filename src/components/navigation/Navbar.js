@@ -18,10 +18,10 @@ const Navbar = () => {
         SamsDesigns
         <GiHamburgerMenu
           className={styles.menuIcon}
-          onClick={() => handleToggleNavDrawer}
+          onClick={handleToggleNavDrawer}
         />
       </div>
-      <ul className={styles.menu}>
+      <ul className={isNavDrawer ? styles.menuDrawer : styles.menu}>
         {navLinks.map((link, index) => {
           return (
             <li key={index}>
