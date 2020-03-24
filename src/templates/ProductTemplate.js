@@ -3,14 +3,14 @@ import { graphql } from "gatsby"
 import Image from "gatsby-image"
 
 import Layout from "../components/layout"
-import styles from "./productTemplate.module.scss"
+//import styles from "./productTemplate.module.scss"
 
 const ProductTemplate = ({ data }) => {
   console.log(data)
   const {
     title,
     price,
-    description: { description },
+    // description: { description },
     images,
   } = data.product
 

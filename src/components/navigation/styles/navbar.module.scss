@@ -4,6 +4,20 @@
 .container {
   width: 100vw;
   height: 200px;
+  @media (max-width: $md) {
+    height: 125px;
+    .menu {
+      display: none;
+    }
+  }
+}
+
+.menuIcon {
+  display: "inline-block";
+  font-size: 2rem;
+  margin-right: 25px;
+  float: right;
+  cursor: pointer;
 }
 
 .logo {
