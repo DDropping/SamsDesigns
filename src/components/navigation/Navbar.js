@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
-import { GiHamburgerMenu } from "react-icons/Gi"
-import { FaRegWindowClose, FaShoppingCart } from "react-icons/Fa"
+import { GiHamburgerMenu, FaShoppingCart } from "react-icons"
 import navLinks from "../../constants/links"
 
 import styles from "./styles/navbar.module.scss"
