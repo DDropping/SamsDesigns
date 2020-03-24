@@ -7,19 +7,21 @@ import Footer from "../components/footer"
 
 const Layout = ({ children }) => {
   return (
-    <div>
+    <div style={{ position: "relative", minHeight: "100vh" }}>
       <Navbar />
-      <div
+      <main
         style={{
           margin: "0 auto",
           maxWidth: "1200",
-          minHeight: "calc(100vh - 300px)",
           padding: "0 1.0875rem 1.45rem",
+          paddingBottom: "100px",
         }}
       >
-        <main>{children}</main>
+        {children}
+      </main>
+      <div style={{ position: "absolute", bottom: 0 }}>
+        <Footer />
       </div>
-      <Footer />
     </div>
   )
 }
