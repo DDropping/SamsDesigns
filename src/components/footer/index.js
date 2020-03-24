@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
-import { FaFacebookSquare, FaInstagram, FaTwitterSquare } from "react-icons/fa"
 
 import styles from "./footer.module.scss"
+import socialLinks from "../../constants/social"
 
 const index = () => {
   return (
@@ -10,15 +10,13 @@ const index = () => {
       <div className={styles.logo}>
         SamsDesigns
         <div>
-          <Link>
-            <FaFacebookSquare className={styles.icon} />
-          </Link>
-          <Link>
-            <FaInstagram className={styles.icon} />
-          </Link>
-          <Link>
-            <FaTwitterSquare className={styles.icon} />
-          </Link>
+          {socialLinks.map((link, index) => {
+            return (
+              <Link to={link.path}>
+                <span className={styles.icon}>{link.icon}</span>
+              </Link>
+            )
+          })}
         </div>
       </div>
     </div>
