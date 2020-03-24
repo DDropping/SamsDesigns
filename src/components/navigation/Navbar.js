@@ -9,16 +9,24 @@ const Navbar = () => {
       <div className={styles.logo}>SamsDesigns</div>
       <ul className={styles.menu}>
         <li>
-          <Link className={styles.link}>Home</Link>
+          <Link to="/" className={styles.link}>
+            Home
+          </Link>
         </li>
         <li>
-          <Link className={styles.link}>Mens</Link>
+          <Link to="/" className={styles.link}>
+            Mens
+          </Link>
         </li>
         <li>
-          <Link className={styles.link}>Womens</Link>
+          <Link to="/" className={styles.link}>
+            Womens
+          </Link>
         </li>
         <li>
-          <Link className={styles.link}>Children</Link>
+          <Link to="/" className={styles.link}>
+            Children
+          </Link>
         </li>
       </ul>
     </div>

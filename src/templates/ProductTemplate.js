@@ -16,7 +16,7 @@ const ProductTemplate = ({ data }) => {
 
   return (
     <Layout>
-      <div>{title}</div>
+      <div>{"$" + price + " " + title}</div>
       <Image fluid={images[0].fluid} />
     </Layout>
   )
@@ -26,6 +26,7 @@ export const productQuery = graphql`
   query($contentful_id: String) {
     product: contentfulProduct(contentful_id: { eq: $contentful_id }) {
       title
+      price
       description {
         description
       }
