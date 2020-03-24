@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import "./layout.scss"
+import Navbar from "../components/navigation/Navbar"
 
 const Layout = ({ children }) => {
   return (
@@ -13,6 +14,7 @@ const Layout = ({ children }) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
+        <Navbar />
         <main>{children}</main>
       </div>
     </>

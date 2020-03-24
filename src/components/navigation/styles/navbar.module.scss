@@ -1,0 +1,32 @@
+@import "../../../variables";
+@import url("https://fonts.googleapis.com/css?family=Lobster&display=swap");
+
+.container {
+  width: 100vw;
+  height: 200px;
+}
+
+.logo {
+  font-family: "Lobster", cursive;
+  padding-top: 25px;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.menu {
+  padding: 25px;
+  text-align: center;
+  li {
+    display: inline-block;
+  }
+}
+
+.link {
+  padding: 1rem 3rem;
+  color: $black;
+  text-decoration: none;
+  &:hover {
+    color: $primary;
+    text-decoration: none;
+  }
+}
