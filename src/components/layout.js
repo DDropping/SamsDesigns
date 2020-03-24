@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
       <main
         style={{
           margin: "0 auto",
-          maxWidth: "1200",
+          maxWidth: "1200px",
           padding: "0 1.0875rem 1.45rem",
           paddingBottom: "100px",
         }}
