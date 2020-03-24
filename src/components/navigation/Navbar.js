@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import { GiHamburgerMenu } from "react-icons/Gi"
+import navLinks from "../../constants/links"
 
 import styles from "./styles/navbar.module.scss"
 
@@ -21,26 +22,15 @@ const Navbar = () => {
         />
       </div>
       <ul className={styles.menu}>
-        <li>
-          <Link to="/" className={styles.link}>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link to="/" className={styles.link}>
-            Mens
-          </Link>
-        </li>
-        <li>
-          <Link to="/" className={styles.link}>
-            Womens
-          </Link>
-        </li>
-        <li>
-          <Link to="/" className={styles.link}>
-            Children
-          </Link>
-        </li>
+        {navLinks.map((link, index) => {
+          return (
+            <li key={index}>
+              <Link to={link.path} className={styles.link}>
+                {link.text}
+              </Link>
+            </li>
+          )
+        })}
       </ul>
     </div>
   )
