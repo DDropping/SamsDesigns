@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import styles from "./footer.module.scss"
 import socialLinks from "../../constants/social"
@@ -12,9 +11,14 @@ const index = () => {
         <div>
           {socialLinks.map((link, index) => {
             return (
-              <Link to={link.path} key={index}>
+              <a
+                href={link.url}
+                key={index}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span className={styles.icon}>{link.icon}</span>
-              </Link>
+              </a>
             )
           })}
         </div>
