@@ -1,0 +1,22 @@
+@import "../../variables.scss";
+@import url("https://fonts.googleapis.com/css?family=Lobster&display=swap");
+
+.container {
+  width: 100vw;
+  height: 100px;
+  background-color: $primary;
+}
+
+.logo {
+  font-family: "Lobster", cursive;
+  padding-top: 10px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.icon {
+  margin: 0 5px;
+  font-size: 2rem;
+  text-decoration: none;
+  color: $black;
+}

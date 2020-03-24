@@ -1,0 +1,28 @@
+@import "../../variables.scss";
+
+.productContainer {
+  width: 25%;
+  display: inline-block;
+  padding: 5px;
+  @media (max-width: $xl) {
+    width: 25%;
+  }
+  @media (max-width: $lg) {
+    width: 33%;
+  }
+  @media (max-width: $md) {
+    width: 50%;
+  }
+  @media (max-width: $sm) {
+    width: 100%;
+  }
+}
+
+.productContent {
+  height: 75px;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}

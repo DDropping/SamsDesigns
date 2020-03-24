@@ -1,0 +1,83 @@
+@import "../../../variables";
+@import url("https://fonts.googleapis.com/css?family=Lobster&display=swap");
+
+.container {
+  width: 100vw;
+  @media (max-width: $md) {
+    .menu {
+      display: none;
+    }
+  }
+  @media (min-width: $md) {
+    .menuIcon {
+      display: none;
+    }
+  }
+}
+
+.menuIcon {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 2rem;
+  color: $grey;
+  cursor: pointer;
+  &:hover {
+    color: $primary;
+    text-decoration: none;
+  }
+}
+
+.cartIcon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  text-decoration: none;
+  color: $grey;
+  cursor: pointer;
+  &:hover {
+    color: $primary;
+    text-decoration: none;
+  }
+}
+
+.logo {
+  font-family: "Lobster", cursive;
+  color: $black;
+  padding: 1.5rem 0;
+  font-size: 3rem;
+  text-align: center;
+  @media (max-width: $sm) {
+    font-size: 2rem;
+  }
+}
+
+.menu {
+  padding-bottom: 2rem;
+  text-align: center;
+  li {
+    display: inline-block;
+    font-weight: bold;
+  }
+}
+
+.menuDrawer {
+  border-top: 2px solid $black;
+  margin: 1rem;
+  li {
+    display: block;
+    padding: 1rem 1.25rem;
+    font-weight: bold;
+  }
+}
+
+.link {
+  padding: 1rem 3rem;
+  color: $black;
+  text-decoration: none;
+  &:hover {
+    color: $primary;
+    text-decoration: none;
+  }
+}
