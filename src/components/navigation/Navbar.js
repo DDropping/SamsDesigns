@@ -20,10 +20,10 @@ const Navbar = () => {
           className={styles.menuIcon}
           onClick={handleToggleNavDrawer}
         />
-        SamsDesigns
         <Link to="/cart">
           <FaShoppingCart className={styles.cartIcon} />
         </Link>
+        SamsDesigns
       </div>
       <ul className={isNavDrawer ? styles.menuDrawer : styles.menu}>
         {navLinks.map((link, index) => {

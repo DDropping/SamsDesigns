@@ -16,11 +16,11 @@
 }
 
 .menuIcon {
-  display: "inline-block";
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
   font-size: 2rem;
-  margin-left: 2rem;
-  float: left;
-  color: $black;
+  color: $grey;
   cursor: pointer;
   &:hover {
     color: $primary;
@@ -29,12 +29,12 @@
 }
 
 .cartIcon {
-  display: "inline-block";
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
   font-size: 2rem;
-  margin-right: 2rem;
-  float: right;
   text-decoration: none;
-  color: $black;
+  color: $grey;
   cursor: pointer;
   &:hover {
     color: $primary;
@@ -44,9 +44,13 @@
 
 .logo {
   font-family: "Lobster", cursive;
+  color: $black;
   padding: 1.5rem 0;
   font-size: 3rem;
   text-align: center;
+  @media (max-width: $sm) {
+    font-size: 2rem;
+  }
 }
 
 .menu {
@@ -59,6 +63,8 @@
 }
 
 .menuDrawer {
+  border-top: 2px solid $black;
+  margin: 1rem;
   li {
     display: block;
     padding: 1rem 1.25rem;
