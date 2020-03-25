@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 import styles from "./footer.module.scss"
 import socialLinks from "../../constants/social"
-import navLinks from "../../constants/links"
+import navLinks from "../../constants/navLinks"
 import policies from "../../constants/policies"
 
 const index = () => {
