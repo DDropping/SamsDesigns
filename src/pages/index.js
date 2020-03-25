@@ -22,6 +22,10 @@ export const getProducts = graphql`
           price
           contentful_id
           isNewArrival
+          onSale {
+            isOnSale
+            salePrice
+          }
           images {
             fluid {
               ...GatsbyContentfulFluid_withWebp
