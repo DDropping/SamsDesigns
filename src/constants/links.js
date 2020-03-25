@@ -1,18 +1,22 @@
 export default [
   {
     path: "/",
-    text: "Home",
+    text: "POPULAR",
   },
   {
     path: "/",
-    text: "Mens",
+    text: "SHOP",
   },
   {
     path: "/",
-    text: "Womens",
+    text: "ARTISTS",
   },
   {
     path: "/",
-    text: "Children",
+    text: "DISCOVER",
+  },
+  {
+    path: "/",
+    text: "ON SALE",
   },
 ]
