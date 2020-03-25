@@ -3,6 +3,7 @@
 .productContainer {
   width: 25%;
   display: inline-block;
+  vertical-align: top;
   padding: 5px;
   @media (max-width: $xl) {
     width: 25%;
