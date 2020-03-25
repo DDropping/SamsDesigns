@@ -32,7 +32,7 @@ const index = () => {
           <div>
             {navLinks.map((link, index) => {
               return (
-                <span>
+                <span key={index}>
                   <Link key={index} to={link.path} className={styles.link}>
                     {" " + link.text + " "}
                   </Link>
@@ -44,7 +44,7 @@ const index = () => {
           <div>
             {policies.map((policy, index) => {
               return (
-                <span>
+                <span key={index}>
                   <Link key={index} to={policy.path} className={styles.link}>
                     {" " + policy.text + " "}
                   </Link>

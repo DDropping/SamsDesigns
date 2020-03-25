@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Image from "gatsby-image"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import Layout from "../components/layout"
 import styles from "./productTemplate.module.scss"
@@ -14,7 +15,7 @@ const ProductTemplate = ({ data }) => {
   const {
     title,
     price,
-    // description: { description },
+    description,
     images,
     isNewArrival,
     onSale,
@@ -49,13 +50,13 @@ const ProductTemplate = ({ data }) => {
             Size:
             <i>{" " + selectedSize}</i>
           </div>
-          {sizes.map(size => {
+          {sizes.map((size, index) => {
             return (
               <div
+                key={index}
                 className={
                   selectedSize === size ? styles.activeSize : styles.size
                 }
-                key={size}
                 onClick={() => setSize(size)}
               >
                 {size}
@@ -68,11 +69,10 @@ const ProductTemplate = ({ data }) => {
             Color:
             <i>{" " + selectedColor}</i>
           </div>
-          {colors.map(color => {
+          {colors.map((color, index) => {
             return (
-              <div className={styles.colorBoxContainer}>
+              <div key={index} className={styles.colorBoxContainer}>
                 <div
-                  key={color}
                   className={
                     selectedColor === color
                       ? styles.activeColorBox
@@ -84,6 +84,9 @@ const ProductTemplate = ({ data }) => {
               </div>
             )
           })}
+        </div>
+        <div className={styles.description}>
+          {documentToReactComponents(description.json)}
         </div>
       </div>
     </Layout>
@@ -102,7 +105,7 @@ export const productQuery = graphql`
         salePrice
       }
       description {
-        description
+        json
       }
       images {
         fluid {
