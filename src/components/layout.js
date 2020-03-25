@@ -9,16 +9,7 @@ const Layout = ({ children }) => {
   return (
     <div style={{ position: "relative", minHeight: "100vh" }}>
       <Navbar />
-      <main
-        style={{
-          margin: "0 auto",
-          maxWidth: "1200px",
-          padding: "0 1.0875rem 1.45rem",
-          paddingBottom: "100px",
-        }}
-      >
-        {children}
-      </main>
+      <main className="layoutMainContent">{children}</main>
       <div style={{ position: "absolute", bottom: 0 }}>
         <Footer />
       </div>

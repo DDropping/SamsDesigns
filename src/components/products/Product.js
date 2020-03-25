@@ -5,7 +5,7 @@ import Image from "gatsby-image"
 import styles from "./product.module.scss"
 
 const Product = ({ product }) => {
-  const { contentful_id, title, price, images } = product
+  const { contentful_id, title, price, images, isNewArrival, onSale } = product
   const mainImage = images[0].fluid
 
   return (
@@ -13,8 +13,18 @@ const Product = ({ product }) => {
       <Link className={styles.link} to={`/products/${contentful_id}`}>
         <Image fluid={mainImage} alt={title} />
         <div className={styles.productContent}>
-          ${price + " "}
-          {title}
+          <span
+            className={onSale.isOnSale ? styles.salePrice : styles.normalPrice}
+          >
+            {"$" + price}
+          </span>
+          <span className={styles.title}>{" " + title}</span>
+          {onSale.isOnSale && (
+            <div className={styles.onSale}>
+              {"$" + onSale.salePrice + " On Sale"}
+            </div>
+          )}
+          {isNewArrival && <div className={styles.newArrival}>New Arrival</div>}
         </div>
       </Link>
     </div>

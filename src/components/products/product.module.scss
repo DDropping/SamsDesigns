@@ -3,6 +3,7 @@
 .productContainer {
   width: 25%;
   display: inline-block;
+  vertical-align: top;
   padding: 5px;
   @media (max-width: $xl) {
     width: 25%;
@@ -20,6 +21,21 @@
 
 .productContent {
   height: 75px;
+  .newArrival {
+    color: $grey;
+    font-style: italic;
+  }
+  .onSale {
+    color: $red;
+  }
+  .title {
+  }
+  .salePrice {
+    text-decoration: line-through;
+    display: inline-block;
+  }
+  .normalPrice {
+  }
 }
 
 .link {

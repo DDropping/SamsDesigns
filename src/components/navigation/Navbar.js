@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Link } from "gatsby"
 import { GiHamburgerMenu } from "react-icons/gi"
 import { FaShoppingCart } from "react-icons/fa"
-import navLinks from "../../constants/links"
+import navLinks from "../../constants/navLinks"
 
 import styles from "./styles/navbar.module.scss"
 
@@ -15,15 +15,17 @@ const Navbar = () => {
 
   return (
     <div className={styles.container}>
+      <GiHamburgerMenu
+        className={styles.menuIcon}
+        onClick={handleToggleNavDrawer}
+      />
+      <Link to="/">
+        <FaShoppingCart className={styles.cartIcon} />
+      </Link>
       <div className={styles.logo}>
-        <GiHamburgerMenu
-          className={styles.menuIcon}
-          onClick={handleToggleNavDrawer}
-        />
-        <Link to="/">
-          <FaShoppingCart className={styles.cartIcon} />
+        <Link to="/" className={styles.logoLink}>
+          SamsDesigns
         </Link>
-        SamsDesigns
       </div>
       <ul className={isNavDrawer ? styles.menuDrawer : styles.menu}>
         {navLinks.map((link, index) => {
