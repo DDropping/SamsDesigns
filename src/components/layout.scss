@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import "../variables.scss";
 
 * {
   margin: 0;
@@ -10,4 +11,28 @@
 body {
   font-family: "Roboto", sans-serif;
   color: #222;
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+  &:hover {
+    color: $primary;
+  }
+}
+
+.layoutMainContent {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 1.0875rem 1.45rem;
+  padding-bottom: 100px;
+  @media (max-width: $sm) {
+    padding-bottom: 250px;
+  }
+  @media (max-width: $md) {
+    padding-bottom: 200px;
+  }
+  @media (max-width: $lg) {
+    padding-bottom: 200px;
+  }
 }

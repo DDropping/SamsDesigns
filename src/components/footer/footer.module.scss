@@ -3,15 +3,30 @@
 
 .container {
   width: 100vw;
-  height: 100px;
+  height: 100%;
   background-color: $primary;
+}
+
+.content {
+  text-align: center;
 }
 
 .logo {
   font-family: "Lobster", cursive;
-  padding-top: 10px;
+  padding-top: 1rem;
   font-size: 2rem;
-  text-align: center;
+  display: inline-block;
+}
+
+.menu {
+  display: inline-block;
+  padding: 1.5rem;
+  vertical-align: top;
+  .link {
+    &:hover {
+      color: $grey;
+    }
+  }
 }
 
 .icon {
