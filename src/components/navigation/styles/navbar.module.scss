@@ -48,8 +48,17 @@
   padding: 1.5rem 0;
   font-size: 4rem;
   text-align: center;
+  &:hover {
+    color: $black;
+  }
   @media (max-width: $sm) {
     font-size: 3rem;
+  }
+}
+
+.logoLink {
+  &:hover {
+    color: $black;
   }
 }
 

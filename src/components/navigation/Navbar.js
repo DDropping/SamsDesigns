@@ -15,15 +15,17 @@ const Navbar = () => {
 
   return (
     <div className={styles.container}>
+      <GiHamburgerMenu
+        className={styles.menuIcon}
+        onClick={handleToggleNavDrawer}
+      />
+      <Link to="/">
+        <FaShoppingCart className={styles.cartIcon} />
+      </Link>
       <div className={styles.logo}>
-        <GiHamburgerMenu
-          className={styles.menuIcon}
-          onClick={handleToggleNavDrawer}
-        />
-        <Link to="/">
-          <FaShoppingCart className={styles.cartIcon} />
+        <Link to="/" className={styles.logoLink}>
+          SamsDesigns
         </Link>
-        SamsDesigns
       </div>
       <ul className={isNavDrawer ? styles.menuDrawer : styles.menu}>
         {navLinks.map((link, index) => {
