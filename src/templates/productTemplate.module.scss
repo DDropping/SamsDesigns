@@ -3,6 +3,9 @@
 .imageContainer {
   display: inline-block;
   width: 50%;
+  @media (max-width: $sm) {
+    width: 100%;
+  }
   .image {
   }
   .imageList {
@@ -17,6 +20,9 @@
 .contentContainer {
   display: inline-block;
   width: 50%;
+  @media (max-width: $sm) {
+    width: 100%;
+  }
   vertical-align: top;
   padding: 0 2rem;
   .price {
@@ -98,7 +104,7 @@
   }
 
   .addToCartButton {
-    width: 20rem;
+    max-width: 20rem;
     height: 3rem;
     font-size: 1.5rem;
     border: 1px solid $grey;
@@ -132,7 +138,7 @@
       display: inline-block;
       color: $black;
       height: 3rem;
-      width: 15rem;
+      width: calc(100% - 4rem);
       text-align: center;
       vertical-align: middle;
     }
