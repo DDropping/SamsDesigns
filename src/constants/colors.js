@@ -2,7 +2,6 @@ export default [
   "White",
   "Black",
   "Grey",
-  "Blue",
   "Navy",
   "Turquoise",
   "Purple",
