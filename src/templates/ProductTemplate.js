@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Image from "gatsby-image"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { FaShoppingCart } from "react-icons/fa"
 
 import Layout from "../components/layout"
 import styles from "./productTemplate.module.scss"
@@ -84,6 +85,13 @@ const ProductTemplate = ({ data }) => {
               </div>
             )
           })}
+        </div>
+        <div className={styles.addToCartButton}>
+          <div className={styles.addToCartIcon}>
+            <FaShoppingCart />
+          </div>
+          <div className={styles.addToCartDivider} />
+          <div className={styles.addToCartText}>Add to Cart</div>
         </div>
         <div className={styles.description}>
           {documentToReactComponents(description.json)}
