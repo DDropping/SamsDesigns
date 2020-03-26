@@ -26,6 +26,11 @@ const ProductTemplate = ({ data }) => {
     <Layout>
       <div className={styles.imageContainer}>
         <Image className={styles.image} fluid={images[0].fluid} />
+        <div className={styles.imageList}>
+          <div className={styles.imageListItem}>
+            <Image className={styles.image} fluid={images[0].fluid} />
+          </div>
+        </div>
       </div>
       <div className={styles.contentContainer}>
         <div className={styles.title}>{title}</div>

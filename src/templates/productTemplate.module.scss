@@ -5,6 +5,13 @@
   width: 50%;
   .image {
   }
+  .imageList {
+    width: 100%;
+    .imageListItem {
+      width: 25%;
+      padding: 2% 2% 0 0;
+    }
+  }
 }
 
 .contentContainer {
