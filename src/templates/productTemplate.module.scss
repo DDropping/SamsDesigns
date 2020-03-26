@@ -20,11 +20,12 @@
 .contentContainer {
   display: inline-block;
   width: 50%;
+  vertical-align: top;
+  padding: 0 2rem;
+  margin-bottom: 3rem;
   @media (max-width: $sm) {
     width: 100%;
   }
-  vertical-align: top;
-  padding: 0 2rem;
   .price {
     font-size: 1.5rem;
   }

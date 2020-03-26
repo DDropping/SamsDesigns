@@ -26,7 +26,7 @@ a {
   padding: 0 1.0875rem 1.45rem;
   padding-bottom: 100px;
   @media (max-width: $sm) {
-    padding-bottom: 250px;
+    padding-bottom: 300px;
   }
   @media (max-width: $md) {
     padding-bottom: 200px;
@@ -34,4 +34,9 @@ a {
   @media (max-width: $lg) {
     padding-bottom: 200px;
   }
+}
+
+.layoutMainFooter {
+  position: absolute;
+  bottom: 0;
 }

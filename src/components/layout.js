@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
       </div>
       <Navbar />
       <main className="layoutMainContent">{children}</main>
-      <div style={{ position: "absolute", bottom: 0 }}>
+      <div className="layoutMainFooter">
         <Footer />
       </div>
     </div>
