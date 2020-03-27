@@ -81,7 +81,6 @@ const ProductTemplate = ({ data }) => {
                 }
                 role="button"
                 tabIndex={0}
-                onKeyDown={this.handleKeyDown}
                 onClick={() => setSize(size)}
               >
                 {size}
@@ -106,7 +105,6 @@ const ProductTemplate = ({ data }) => {
                   style={{ backgroundColor: color }}
                   role="button"
                   tabIndex={0}
-                  onKeyDown={this.handleKeyDown}
                   onClick={() => setColor(color)}
                 />
               </div>
@@ -117,7 +115,6 @@ const ProductTemplate = ({ data }) => {
           className={styles.addToCartButton}
           role="button"
           tabIndex={0}
-          onKeyDown={this.handleKeyDown}
           onClick={event => redirectToCheckout(event, sku)}
         >
           <div className={styles.addToCartIcon}>
