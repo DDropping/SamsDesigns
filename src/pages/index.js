@@ -18,6 +18,7 @@ export const getProducts = graphql`
     products: allContentfulProduct {
       edges {
         node {
+          sku
           title
           price
           contentful_id

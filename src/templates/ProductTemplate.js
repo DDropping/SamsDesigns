@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Image from "gatsby-image"
 import { FaShoppingCart } from "react-icons/fa"
+import { loadStripe } from "@stripe/stripe-js"
 
 import Layout from "../components/layout"
 import styles from "./productTemplate.module.scss"
@@ -13,6 +14,7 @@ const ProductTemplate = ({ data }) => {
   const [selectedSize, setSize] = useState("Medium")
 
   const {
+    sku,
     title,
     price,
     description,
@@ -20,6 +22,21 @@ const ProductTemplate = ({ data }) => {
     isNewArrival,
     onSale,
   } = data.product
+
+  const stripePromise = loadStripe("pk_test_uXHacdHV1RXAHbZjZH4kQe8300gConxOLu")
+
+  const redirectToCheckout = async (event, sku, quantity = 1) => {
+    event.preventDefault()
+    const stripe = await stripePromise
+    const { error } = await stripe.redirectToCheckout({
+      items: [{ sku, quantity }],
+      successUrl: `${window.location.origin}/page-2/`,
+      cancelUrl: `${window.location.origin}/advanced`,
+    })
+    if (error) {
+      console.warn("Error:", error)
+    }
+  }
 
   return (
     <Layout>
@@ -62,6 +79,9 @@ const ProductTemplate = ({ data }) => {
                 className={
                   selectedSize === size ? styles.activeSize : styles.size
                 }
+                role="button"
+                tabIndex={0}
+                onKeyDown={this.handleKeyDown}
                 onClick={() => setSize(size)}
               >
                 {size}
@@ -84,13 +104,22 @@ const ProductTemplate = ({ data }) => {
                       : styles.colorBox
                   }
                   style={{ backgroundColor: color }}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={this.handleKeyDown}
                   onClick={() => setColor(color)}
                 />
               </div>
             )
           })}
         </div>
-        <div className={styles.addToCartButton}>
+        <div
+          className={styles.addToCartButton}
+          role="button"
+          tabIndex={0}
+          onKeyDown={this.handleKeyDown}
+          onClick={event => redirectToCheckout(event, sku)}
+        >
           <div className={styles.addToCartIcon}>
             <FaShoppingCart />
           </div>
