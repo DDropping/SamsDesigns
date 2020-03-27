@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Image from "gatsby-image"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { FaShoppingCart } from "react-icons/fa"
 
 import Layout from "../components/layout"
@@ -98,9 +97,7 @@ const ProductTemplate = ({ data }) => {
           <div className={styles.addToCartDivider} />
           <div className={styles.addToCartText}>Add to Cart</div>
         </div>
-        <div className={styles.description}>
-          {documentToReactComponents(description.json)}
-        </div>
+        <div className={styles.description}>{description.description}</div>
       </div>
     </Layout>
   )
@@ -109,16 +106,17 @@ const ProductTemplate = ({ data }) => {
 export const productQuery = graphql`
   query($contentful_id: String) {
     product: contentfulProduct(contentful_id: { eq: $contentful_id }) {
+      sku
       title
       price
+      description {
+        description
+      }
       isAvailable
       isNewArrival
       onSale {
         isOnSale
         salePrice
-      }
-      description {
-        json
       }
       images {
         fluid {
