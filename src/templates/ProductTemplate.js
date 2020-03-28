@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { graphql } from "gatsby"
 import Image from "gatsby-image"
 import { FaShoppingCart } from "react-icons/fa"
@@ -8,10 +8,17 @@ import Layout from "../components/layout"
 import styles from "./productTemplate.module.scss"
 import colors from "../constants/colors"
 import sizes from "../constants/sizes"
+import {
+  GlobalDispatchContext,
+  GlobalStateContext,
+} from "../context/GlobalContextProvider"
 
 const ProductTemplate = ({ data }) => {
   const [selectedColor, setColor] = useState("White")
   const [selectedSize, setSize] = useState("Medium")
+  const dispatch = useContext(GlobalDispatchContext)
+  const state = useContext(GlobalStateContext)
+  console.log(state)
 
   const {
     sku,
@@ -115,7 +122,21 @@ const ProductTemplate = ({ data }) => {
           className={styles.addToCartButton}
           role="button"
           tabIndex={0}
-          onClick={event => redirectToCheckout(event, sku)}
+          //onClick={event => redirectToCheckout(event, sku)}
+          onClick={() => {
+            dispatch({
+              type: "ADD_ITEM",
+              payload: {
+                sku: sku,
+                quantity: 1,
+                title: title,
+                price: onSale.isOnSale ? onSale.salePrice : price,
+                color: selectedColor,
+                size: selectedSize,
+                images: images,
+              },
+            })
+          }}
         >
           <div className={styles.addToCartIcon}>
             <FaShoppingCart />
