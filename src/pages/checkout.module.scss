@@ -3,7 +3,8 @@
 .cart {
   display: inline-block;
   vertical-align: top;
-  @media (min-width: $lg) {
+  width: 100%;
+  @media (min-width: $md) {
     width: 60%;
     padding-right: 0.5rem;
   }
@@ -21,7 +22,8 @@
 .summary {
   display: inline-block;
   vertical-align: top;
-  @media (min-width: $lg) {
+  width: 100%;
+  @media (min-width: $md) {
     width: 40%;
     padding-left: 0.5rem;
   }

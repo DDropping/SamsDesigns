@@ -79,3 +79,20 @@
     }
   }
 }
+
+.summary {
+  .checkoutButton {
+    width: 80%;
+    margin: 1rem 10%;
+    height: 3rem;
+    background-color: $secondary;
+    font-size: 1.25rem;
+    color: $black;
+    &:hover {
+      background-color: $primary;
+    }
+    &:active {
+      background-color: $secondary;
+    }
+  }
+}
