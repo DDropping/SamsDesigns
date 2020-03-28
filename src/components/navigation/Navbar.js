@@ -19,7 +19,7 @@ const Navbar = () => {
         className={styles.menuIcon}
         onClick={handleToggleNavDrawer}
       />
-      <Link to="/checkout">
+      <Link to="/mycart">
         <FaShoppingCart className={styles.cartIcon} />
       </Link>
       <div className={styles.logo}>
