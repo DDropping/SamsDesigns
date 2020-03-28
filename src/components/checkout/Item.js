@@ -1,9 +1,11 @@
-import React from "react"
+import React, { useContext } from "react"
 import Image from "gatsby-image"
 
 import styles from "./checkout.module.scss"
+import { GlobalDispatchContext } from "../../context/GlobalContextProvider"
 
-const Item = ({ item }) => {
+const Item = ({ item, id }) => {
+  const dispatch = useContext(GlobalDispatchContext)
   const { title, price, onSale, color, size, images, quantity } = item
 
   return (
@@ -32,7 +34,12 @@ const Item = ({ item }) => {
         </div>
       </div>
       <div className={styles.remove}>
-        <div className={styles.option}>Delete</div>
+        <div
+          className={styles.option}
+          onClick={() => dispatch({ type: "REMOVE_ITEM", payload: id })}
+        >
+          Delete
+        </div>
         <div className={styles.option}>Edit</div>
       </div>
     </div>

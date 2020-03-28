@@ -14,6 +14,11 @@ function reducer(state, action) {
         ...state,
         cart: [...state.cart, action.payload],
       }
+    case "REMOVE_ITEM":
+      return {
+        ...state,
+        cart: state.cart.filter((item, index) => index !== action.payload),
+      }
     default:
       throw new Error("Bad Action Type")
   }

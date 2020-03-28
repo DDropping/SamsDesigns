@@ -9,7 +9,7 @@ const List = () => {
   return (
     <div>
       {state.cart.map((item, index) => {
-        return <Item item={item} key={index} />
+        return <Item item={item} key={index} id={index} />
       })}
     </div>
   )
