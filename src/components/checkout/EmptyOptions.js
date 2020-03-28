@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 
 import styles from "./checkout.module.scss"
 
@@ -7,8 +8,12 @@ const EmptyOptions = () => {
     <div className={styles.emptyOptions}>
       Your cart is currently empty.
       <div>
-        <button>New Arrivals</button>
-        <button>On Sale!</button>
+        <Link>
+          <button>New Arrivals</button>
+        </Link>
+        <Link>
+          <button>On Sale!</button>
+        </Link>
       </div>
     </div>
   )

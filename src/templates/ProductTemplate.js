@@ -17,7 +17,6 @@ const ProductTemplate = ({ data }) => {
   const [selectedSize, setSize] = useState("Medium")
   const dispatch = useContext(GlobalDispatchContext)
   const state = useContext(GlobalStateContext)
-  console.log(state)
 
   const {
     sku,

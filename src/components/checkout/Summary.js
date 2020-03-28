@@ -26,15 +26,11 @@ const Summary = () => {
     skuData.push({ sku: item.sku, quantity: item.quantity })
   })
 
-  console.log(skuData)
-
   var subTotal = 0
   state.cart.map(item => {
     return (subTotal =
       subTotal + (item.onSale.isOnSale ? item.onSale.salePrice : item.price))
   })
-
-  console.log(skuData)
 
   return (
     <div className={styles.summary}>
@@ -56,9 +52,10 @@ const Summary = () => {
       </div>
       <button
         className={styles.checkoutButton}
-        onClick={event => redirectToCheckout(event, skuData)}
+        //onClick={event => redirectToCheckout(event, skuData)}
+        style={{ backgroundColor: "grey" }}
       >
-        Checkout
+        Checkout (disabled)
       </button>
     </div>
   )
