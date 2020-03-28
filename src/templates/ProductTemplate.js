@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react"
 import { graphql } from "gatsby"
 import Image from "gatsby-image"
 import { FaShoppingCart } from "react-icons/fa"
-import { loadStripe } from "@stripe/stripe-js"
 
 import Layout from "../components/layout"
 import styles from "./productTemplate.module.scss"
@@ -29,21 +28,6 @@ const ProductTemplate = ({ data }) => {
     isNewArrival,
     onSale,
   } = data.product
-
-  const stripePromise = loadStripe("pk_test_uXHacdHV1RXAHbZjZH4kQe8300gConxOLu")
-
-  const redirectToCheckout = async (event, sku, quantity = 1) => {
-    event.preventDefault()
-    const stripe = await stripePromise
-    const { error } = await stripe.redirectToCheckout({
-      items: [{ sku, quantity }],
-      successUrl: `${window.location.origin}/`,
-      cancelUrl: `${window.location.origin}/`,
-    })
-    if (error) {
-      console.warn("Error:", error)
-    }
-  }
 
   return (
     <Layout>
@@ -122,7 +106,6 @@ const ProductTemplate = ({ data }) => {
           className={styles.addToCartButton}
           role="button"
           tabIndex={0}
-          //onClick={event => redirectToCheckout(event, sku)}
           onClick={() => {
             dispatch({
               type: "ADD_ITEM",
@@ -130,7 +113,8 @@ const ProductTemplate = ({ data }) => {
                 sku: sku,
                 quantity: 1,
                 title: title,
-                price: onSale.isOnSale ? onSale.salePrice : price,
+                price: price,
+                onSale: onSale,
                 color: selectedColor,
                 size: selectedSize,
                 images: images,
