@@ -7,16 +7,12 @@ import Layout from "../components/layout"
 import styles from "./productTemplate.module.scss"
 import colors from "../constants/colors"
 import sizes from "../constants/sizes"
-import {
-  GlobalDispatchContext,
-  GlobalStateContext,
-} from "../context/GlobalContextProvider"
+import { GlobalDispatchContext } from "../context/GlobalContextProvider"
 
 const ProductTemplate = ({ data }) => {
   const [selectedColor, setColor] = useState("White")
   const [selectedSize, setSize] = useState("Medium")
   const dispatch = useContext(GlobalDispatchContext)
-  const state = useContext(GlobalStateContext)
 
   const {
     sku,

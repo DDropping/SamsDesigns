@@ -23,7 +23,7 @@ const Summary = () => {
 
   var skuData = []
   state.cart.map(item => {
-    skuData.push({ sku: item.sku, quantity: item.quantity })
+    return skuData.push({ sku: item.sku, quantity: item.quantity })
   })
 
   var subTotal = 0
