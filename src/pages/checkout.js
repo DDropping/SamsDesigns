@@ -1,39 +1,31 @@
 import React, { useContext } from "react"
-import { loadStripe } from "@stripe/stripe-js"
 
+import styles from "./checkout.module.scss"
 import Layout from "../components/layout"
 import CheckoutList from "../components/checkout/List"
-import {
-  GlobalDispatchContext,
-  GlobalStateContext,
-} from "../context/GlobalContextProvider"
+import EmptyOptions from "../components/checkout/EmptyOptions"
+import Summary from "../components/checkout/Summary"
+import { GlobalStateContext } from "../context/GlobalContextProvider"
 
 const Checkout = () => {
-  const dispatch = useContext(GlobalDispatchContext)
   const state = useContext(GlobalStateContext)
-  console.log(state)
-  const stripePromise = loadStripe("pk_test_uXHacdHV1RXAHbZjZH4kQe8300gConxOLu")
-
-  const redirectToCheckout = async (event, sku, quantity = 1) => {
-    event.preventDefault()
-    const stripe = await stripePromise
-    const { error } = await stripe.redirectToCheckout({
-      items: [{ sku, quantity }],
-      successUrl: `${window.location.origin}/`,
-      cancelUrl: `${window.location.origin}/`,
-    })
-    if (error) {
-      console.warn("Error:", error)
-    }
-  }
 
   return (
     <Layout>
-      <div>checkout</div>
-      <CheckoutList />
-      <button onClick={event => redirectToCheckout(event, state.cart)}>
-        Checkout
-      </button>
+      <div className={styles.cart}>
+        <div className={styles.header}>
+          {"My Cart: "}
+          <span className={styles.itemCount}>
+            {state.cart.length + " item(s)"}
+          </span>
+        </div>
+        {state.cart.length === 0 && <EmptyOptions />}
+        <CheckoutList />
+      </div>
+      <div className={styles.summary}>
+        <div className={styles.header}>Order Summary:</div>
+        <Summary />
+      </div>
     </Layout>
   )
 }

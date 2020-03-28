@@ -7,7 +7,7 @@
 
 .imageWrapper {
   display: inline-block;
-  width: 7rem;
+  width: 8rem;
   .image {
     margin: 0.5rem 0.5rem 0.5rem 0;
   }
@@ -59,6 +59,23 @@
   .option {
     &:hover {
       color: $primary;
+    }
+  }
+}
+
+.emptyOptions {
+  color: $grey;
+  font-weight: bold;
+  button {
+    width: 40%;
+    height: 3rem;
+    margin: 0.25rem;
+    background-color: $secondary;
+    font-size: 1.25rem;
+    color: $black;
+    vertical-align: top;
+    &:hover {
+      background-color: $primary;
     }
   }
 }
