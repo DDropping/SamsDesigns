@@ -1,10 +1,10 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { Link } from "gatsby"
 import { GiHamburgerMenu } from "react-icons/gi"
-import { FaShoppingCart } from "react-icons/fa"
-import navLinks from "../../constants/navLinks"
 
 import styles from "./styles/navbar.module.scss"
+import navLinks from "../../constants/navLinks"
+import CartIcon from "./CartIcon"
 
 const Navbar = () => {
   const [isNavDrawer, toggleNavDrawer] = useState(false)
@@ -19,9 +19,8 @@ const Navbar = () => {
         className={styles.menuIcon}
         onClick={handleToggleNavDrawer}
       />
-      <Link to="/">
-        <FaShoppingCart className={styles.cartIcon} />
-      </Link>
+      <CartIcon />
+
       <div className={styles.logo}>
         <Link to="/" className={styles.logoLink}>
           SamsDesigns

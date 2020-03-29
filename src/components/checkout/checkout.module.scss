@@ -1,0 +1,100 @@
+@import "../../variables.scss";
+
+.container {
+  width: 100%;
+  border-bottom: 1px solid $grey;
+}
+
+.imageWrapper {
+  display: inline-block;
+  width: 8rem;
+  .image {
+    margin: 0.5rem 0.5rem 0.5rem 0;
+  }
+}
+
+.content {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+
+  .title {
+    font-weight: bold;
+    cursor: pointer;
+    &:hover {
+      color: $primary;
+    }
+  }
+  .oldPrice {
+    color: $grey;
+    font-style: italic;
+    text-decoration: line-through;
+  }
+  .salePrice {
+    color: $red;
+  }
+  .discount {
+    color: $red;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 0.85rem;
+  }
+  .colorSizeQuantity {
+    margin-top: 0.5rem;
+    color: $grey;
+    font-size: 0.85rem;
+  }
+}
+
+.remove {
+  width: 5rem;
+  vertical-align: top;
+  color: $grey;
+  text-decoration: underline;
+  cursor: pointer;
+  @media (min-width: $sm) {
+    float: right;
+    padding: 2rem 0;
+  }
+  .option {
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.emptyOptions {
+  color: $grey;
+  font-weight: bold;
+  text-align: center;
+  button {
+    width: 40%;
+    height: 3rem;
+    margin: 0.25rem;
+    background-color: $secondary;
+    font-size: 1.25rem;
+    color: $black;
+    vertical-align: top;
+    cursor: pointer;
+    &:hover {
+      background-color: $primary;
+    }
+  }
+}
+
+.summary {
+  .checkoutButton {
+    width: 80%;
+    margin: 1rem 10%;
+    height: 3rem;
+    background-color: $secondary;
+    font-size: 1.25rem;
+    color: $black;
+    &:hover {
+      background-color: $primary;
+    }
+    &:active {
+      background-color: $secondary;
+    }
+  }
+}

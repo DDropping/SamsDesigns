@@ -1,19 +1,25 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { graphql } from "gatsby"
 import Image from "gatsby-image"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { FaShoppingCart } from "react-icons/fa"
+import { FaShoppingCart, FaCheck } from "react-icons/fa"
 
 import Layout from "../components/layout"
 import styles from "./productTemplate.module.scss"
 import colors from "../constants/colors"
 import sizes from "../constants/sizes"
+import {
+  GlobalStateContext,
+  GlobalDispatchContext,
+} from "../context/GlobalContextProvider"
 
 const ProductTemplate = ({ data }) => {
   const [selectedColor, setColor] = useState("White")
   const [selectedSize, setSize] = useState("Medium")
+  const dispatch = useContext(GlobalDispatchContext)
+  const state = useContext(GlobalStateContext)
 
   const {
+    sku,
     title,
     price,
     description,
@@ -63,6 +69,8 @@ const ProductTemplate = ({ data }) => {
                 className={
                   selectedSize === size ? styles.activeSize : styles.size
                 }
+                role="button"
+                tabIndex={0}
                 onClick={() => setSize(size)}
               >
                 {size}
@@ -85,22 +93,54 @@ const ProductTemplate = ({ data }) => {
                       : styles.colorBox
                   }
                   style={{ backgroundColor: color }}
+                  role="button"
+                  tabIndex={0}
                   onClick={() => setColor(color)}
                 />
               </div>
             )
           })}
         </div>
-        <div className={styles.addToCartButton}>
-          <div className={styles.addToCartIcon}>
-            <FaShoppingCart />
+        {!state.isCartPreview && (
+          <div
+            className={styles.addToCartButton}
+            role="button"
+            tabIndex={0}
+            onClick={() => {
+              dispatch({
+                type: "ADD_ITEM",
+                payload: {
+                  sku: sku,
+                  quantity: 1,
+                  title: title,
+                  price: price,
+                  onSale: onSale,
+                  color: selectedColor,
+                  size: selectedSize,
+                  images: images,
+                },
+              })
+              dispatch({ type: "TOGGLE_CART_PREVIEW", payload: true })
+            }}
+          >
+            <div className={styles.addToCartIcon}>
+              <FaShoppingCart />
+            </div>
+            <div className={styles.addToCartDivider} />
+            <div className={styles.addToCartText}>Add to Cart</div>
           </div>
-          <div className={styles.addToCartDivider} />
-          <div className={styles.addToCartText}>Add to Cart</div>
-        </div>
-        <div className={styles.description}>
-          {documentToReactComponents(description.json)}
-        </div>
+        )}
+        {state.isCartPreview && (
+          <div className={styles.addToCartButton}>
+            <div className={styles.addToCartIcon}>
+              <FaCheck />
+            </div>
+            <div className={styles.addToCartDivider} />
+            <div className={styles.addToCartText}>Added to Cart!</div>
+          </div>
+        )}
+
+        <div className={styles.description}>{description.description}</div>
       </div>
     </Layout>
   )
@@ -109,16 +149,17 @@ const ProductTemplate = ({ data }) => {
 export const productQuery = graphql`
   query($contentful_id: String) {
     product: contentfulProduct(contentful_id: { eq: $contentful_id }) {
+      sku
       title
       price
+      description {
+        description
+      }
       isAvailable
       isNewArrival
       onSale {
         isOnSale
         salePrice
-      }
-      description {
-        json
       }
       images {
         fluid {

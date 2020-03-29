@@ -1,0 +1,35 @@
+@import "../variables.scss";
+
+.cart {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  @media (min-width: $md) {
+    width: 60%;
+    padding-right: 0.5rem;
+  }
+  .header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $grey;
+    .itemCount {
+      color: $grey;
+    }
+  }
+}
+
+.summary {
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  @media (min-width: $md) {
+    width: 40%;
+    padding-left: 0.5rem;
+  }
+  .header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-bottom: 1rem;
+  }
+}
