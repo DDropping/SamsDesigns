@@ -4,6 +4,7 @@ export const GlobalStateContext = React.createContext()
 export const GlobalDispatchContext = React.createContext()
 
 const initialState = {
+  isCartPreview: false,
   cart: [],
 }
 
@@ -18,6 +19,11 @@ function reducer(state, action) {
       return {
         ...state,
         cart: state.cart.filter((item, index) => index !== action.payload),
+      }
+    case "TOGGLE_CART_PREVIEW":
+      return {
+        ...state,
+        isCartPreview: action.payload,
       }
     default:
       throw new Error("Bad Action Type")

@@ -1,22 +1,17 @@
 import React, { useState, useContext } from "react"
 import { Link } from "gatsby"
 import { GiHamburgerMenu } from "react-icons/gi"
-import { FaShoppingCart } from "react-icons/fa"
-import navLinks from "../../constants/navLinks"
 
 import styles from "./styles/navbar.module.scss"
-import { GlobalStateContext } from "../../context/GlobalContextProvider"
+import navLinks from "../../constants/navLinks"
+import CartIcon from "./CartIcon"
 
 const Navbar = () => {
-  const state = useContext(GlobalStateContext)
   const [isNavDrawer, toggleNavDrawer] = useState(false)
 
   const handleToggleNavDrawer = () => {
     toggleNavDrawer(!isNavDrawer)
   }
-
-  console.log(state.cart.length)
-  var cartItems = state.cart.length
 
   return (
     <div className={styles.container}>
@@ -24,14 +19,8 @@ const Navbar = () => {
         className={styles.menuIcon}
         onClick={handleToggleNavDrawer}
       />
-      <Link to="/mycart">
-        <div className={styles.cartIcon}>
-          {state.cart.length !== 0 && (
-            <span className={styles.itemCount}>{state.cart.length}</span>
-          )}
-          <FaShoppingCart />
-        </div>
-      </Link>
+      <CartIcon />
+
       <div className={styles.logo}>
         <Link to="/" className={styles.logoLink}>
           SamsDesigns

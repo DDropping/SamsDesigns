@@ -115,6 +115,7 @@ const ProductTemplate = ({ data }) => {
                 images: images,
               },
             })
+            dispatch({ type: "TOGGLE_CART_PREVIEW", payload: true })
           }}
         >
           <div className={styles.addToCartIcon}>
