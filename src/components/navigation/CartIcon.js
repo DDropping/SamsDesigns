@@ -44,7 +44,14 @@ const CartIcon = () => {
             })}
           </div>
           <Link to="/mycart">
-            <button className={styles.checkoutButton}>Checkout</button>
+            <button
+              className={styles.checkoutButton}
+              onClick={() =>
+                dispatch({ type: "TOGGLE_CART_PREVIEW", payload: false })
+              }
+            >
+              Checkout
+            </button>
           </Link>
         </div>
       )}
