@@ -1,18 +1,22 @@
 import React, { useState, useContext } from "react"
 import { graphql } from "gatsby"
 import Image from "gatsby-image"
-import { FaShoppingCart } from "react-icons/fa"
+import { FaShoppingCart, FaCheck } from "react-icons/fa"
 
 import Layout from "../components/layout"
 import styles from "./productTemplate.module.scss"
 import colors from "../constants/colors"
 import sizes from "../constants/sizes"
-import { GlobalDispatchContext } from "../context/GlobalContextProvider"
+import {
+  GlobalStateContext,
+  GlobalDispatchContext,
+} from "../context/GlobalContextProvider"
 
 const ProductTemplate = ({ data }) => {
   const [selectedColor, setColor] = useState("White")
   const [selectedSize, setSize] = useState("Medium")
   const dispatch = useContext(GlobalDispatchContext)
+  const state = useContext(GlobalStateContext)
 
   const {
     sku,
@@ -97,33 +101,45 @@ const ProductTemplate = ({ data }) => {
             )
           })}
         </div>
-        <div
-          className={styles.addToCartButton}
-          role="button"
-          tabIndex={0}
-          onClick={() => {
-            dispatch({
-              type: "ADD_ITEM",
-              payload: {
-                sku: sku,
-                quantity: 1,
-                title: title,
-                price: price,
-                onSale: onSale,
-                color: selectedColor,
-                size: selectedSize,
-                images: images,
-              },
-            })
-            dispatch({ type: "TOGGLE_CART_PREVIEW", payload: true })
-          }}
-        >
-          <div className={styles.addToCartIcon}>
-            <FaShoppingCart />
+        {!state.isCartPreview && (
+          <div
+            className={styles.addToCartButton}
+            role="button"
+            tabIndex={0}
+            onClick={() => {
+              dispatch({
+                type: "ADD_ITEM",
+                payload: {
+                  sku: sku,
+                  quantity: 1,
+                  title: title,
+                  price: price,
+                  onSale: onSale,
+                  color: selectedColor,
+                  size: selectedSize,
+                  images: images,
+                },
+              })
+              dispatch({ type: "TOGGLE_CART_PREVIEW", payload: true })
+            }}
+          >
+            <div className={styles.addToCartIcon}>
+              <FaShoppingCart />
+            </div>
+            <div className={styles.addToCartDivider} />
+            <div className={styles.addToCartText}>Add to Cart</div>
           </div>
-          <div className={styles.addToCartDivider} />
-          <div className={styles.addToCartText}>Add to Cart</div>
-        </div>
+        )}
+        {state.isCartPreview && (
+          <div className={styles.addToCartButton}>
+            <div className={styles.addToCartIcon}>
+              <FaCheck />
+            </div>
+            <div className={styles.addToCartDivider} />
+            <div className={styles.addToCartText}>Added to Cart!</div>
+          </div>
+        )}
+
         <div className={styles.description}>{description.description}</div>
       </div>
     </Layout>
