@@ -16,11 +16,11 @@ const Layout = ({ children }) => {
           textAlign: "center",
         }}
       >
-        THIS IS NOT A REAL WEBSITE, NO PURCHASES WILL BE ALLOWED
+        THIS WEBSITE IS IN DEVELOPMENT, PURCHASING HAS BEEN DISABLED.
       </div>
       <Navbar />
       <main className="layoutMainContent">{children}</main>
-      <div style={{ position: "absolute", bottom: 0 }}>
+      <div className="layoutMainFooter">
         <Footer />
       </div>
     </div>

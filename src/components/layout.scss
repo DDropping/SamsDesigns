@@ -5,6 +5,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  div[role="button"] {
+    outline: none;
+  }
 }
 
 body {
@@ -25,13 +28,19 @@ a {
   max-width: 1200px;
   padding: 0 1.0875rem 1.45rem;
   padding-bottom: 100px;
-  @media (max-width: $sm) {
-    padding-bottom: 250px;
+
+  @media (max-width: $lg) {
+    padding-bottom: 200px;
   }
   @media (max-width: $md) {
     padding-bottom: 200px;
   }
-  @media (max-width: $lg) {
-    padding-bottom: 200px;
+  @media (max-width: $sm) {
+    padding-bottom: 300px;
   }
+}
+
+.layoutMainFooter {
+  position: absolute;
+  bottom: 0;
 }
