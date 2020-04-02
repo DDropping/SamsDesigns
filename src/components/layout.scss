@@ -26,21 +26,11 @@ a {
 .layoutMainContent {
   margin: 0 auto;
   max-width: 1200px;
+  width: 100%;
   padding: 0 1.0875rem 1.45rem;
-  padding-bottom: 100px;
-
-  @media (max-width: $lg) {
-    padding-bottom: 200px;
-  }
-  @media (max-width: $md) {
-    padding-bottom: 200px;
-  }
-  @media (max-width: $sm) {
-    padding-bottom: 300px;
-  }
+  padding-bottom: 1rem;
+  flex: 1;
 }
 
 .layoutMainFooter {
-  position: absolute;
-  bottom: 0;
 }

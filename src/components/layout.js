@@ -7,7 +7,9 @@ import Footer from "../components/footer"
 
 const Layout = ({ children }) => {
   return (
-    <div style={{ position: "relative", minHeight: "100vh" }}>
+    <div
+      style={{ display: "flex", minHeight: "100vh", flexDirection: "column" }}
+    >
       <div
         style={{
           width: "100vw",
